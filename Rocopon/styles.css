@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Permanent+Marker&family=Press+Start+2P&display=swap');
+
+body {
+  font-family: 'Bungee Spice', cursive;
+    background-color: #000000;
+    font-family: "Poppins", sans-serif;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(6, 87, 102, 1) 48%,
+      rgba(2, 0, 36, 1) 100%
+    );
+      display: grid;
+      grid-template-rows: auto 50px;
+      min-height: 100vh;
+}
+.contenedor {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      border: 2px solid #14d7ce30;
+      background-color: rgb(0 8 38);
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        15deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(7, 30, 83, 1) 22%,
+        rgba(92, 23, 127, 0.321) 39%,
+        rgba(60, 15, 82, 0.396) 63%,
+        rgba(7, 30, 83, 1) 83%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      width: 80%;
+      margin: auto;
+      border-radius: 152px;
+      padding: 30px;
+      box-shadow: 0px 0px 10px 10px rgb(2 0 36);
+}    
+
+.titulo {
+  font-family: "Luckiest Guy", cursive;
+  color: #420404;
+  font-size: 70px;
+  letter-spacing: 4px;
+  margin: 0;
+  text-shadow: 4px 0px 1px #07689f;
+  line-height: 70px;
+}
+
+.subtitulo {
+  font-family: "Luckiest Guy", cursive;
+  color: #420404;
+  display: flex;
+  font-size: 31px;
+}
+input {
+  display: none;
+}
+button,
+input,
+label,
+img,
+p {
+  transition: transform 300ms;
+}
+button,
+label {
+  cursor: pointer;
+}
+input:checked + label {
+  background: linear-gradient(to top, #0195954a, #fceb5147);
+  box-shadow: 0px 0px 6px 2px rgba(248, 251, 96, 0.726);
+  border: 3px solid rgba(248, 251, 96, 0.712);
+  transform: scale(1.1);
+}
+input:hover + label {
+  transform: translateY(-10px);
+  border: 3px solid #70caf4;
+  box-shadow: 0px 0px 8px 5px #70caf491;
+}
+input:active + label {
+  box-shadow: 0px 0px 8px 5px #c3ff99;
+  border: 1px solid #c3ff99;
+}
+input:hover + label > img {
+  transform: scale(1.15) translateY(-5px);
+}
+input:hover + label > p {
+  transform: scale(1.1) translateY(1px);
+}
+.boton:hover {
+  background-color: #b10f7b;
+  font-size: 17px;
+}
+.boton:active {
+  background-color: #f82ab3;
+  box-shadow: 0px 0px 6px 3px #fda7e1;
+}
+.tarjetas{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 33px;
+} 
+
+.tarjeta-mokepon {
+  width: 177px;
+  height: 214px;
+  background: rgb(255 255 255 / 10%);
+  border-radius: 60px;
+  border: 5px solid #ba0f0f40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+  box-sizing: border-box;
+  transition: transform 0.1s linear;
+}
+
+.tarjeta-mokepon img {
+  width: 143px;
+  height: 158px;
+  border-radius: 48px;
+}
+.tarjeta-mokepon p {
+  width: 100%;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #420404;
+  margin: 2px;
+}
+.boton {
+  width: 180px;
+  height: 40px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  margin-top: 30px;
+  font-size: 16px;
+  background: #8f0561;
+  border: none;
+  transition: all 300ms ease;
+}
+.boton-de-ataque {
+  background-color: transparent;
+  width: 60px;
+  height: 50px;
+  font-size: 25px;
+  line-height: 20px;
+  border: 3px solid #eeeeee7a;
+  padding: 5px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  font-weight: bolder;
+  margin: 5px;
+  transition: all 300ms ease-in-out;
+}
+.marco{
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: stretch;
+}
+.fuego {
+  border-color: #ff391672;
+}
+.agua {
+  border-color: rgba(121, 224, 255, 0.477);
+}
+.tierra {
+  border-color: #c4ff997c;
+}
+.fuego:hover {
+  border-color: #ff3a16;
+}
+.agua:hover {
+  border-color: rgb(121 223 255);
+}
+.tierra:hover {
+  border-color: #c4ff99;
+}
+.contenedor-boton-ataque {
+  display: flex;
+}
+.fa-fire {
+  color: orange;
+  text-shadow: 1px 1px red;
+}
+.fa-droplet {
+  color: rgb(121 223 255);
+  text-shadow: 2px 1px #01a1fc;
+}
+.fa-seedling {
+  color: #c3ff99;
+  text-shadow: 1px 2px forestgreen;
+}
+.fa-trophy {
+  color: #ffc93c;
+  text-shadow: 2px 2px 2px brown;
+  font-size: 40px;
+}
+.ataque .fa-trophy {
+  font-size: 18px;
+  color: #fff;
+  text-shadow: none;
+}
+.fa-face-sad-tear,
+.fa-face-smile {
+  color: #aaa;
+  font-size: 40px;
+}
+.resultado {
+  margin: 0px;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+.mensajes {
+  width: 280px;
+  background: transparent;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid #fff;
+}
+
+.boton-reiniciar {
+  display: flex;
+  border-radius: 46px;
+  background-color: black;
+  font-size: 25px;
+  color: #ffffff;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.figuraResultado {
+  margin: 8px 0;
+}
+.boton-reiniciar {
+  margin-top: 5px;
+}
+.boton {
+  width: 129px;
+  height: 44px;
+}
+.ataque {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 150px 150px;
+  justify-items: center;
+}
+.ataque p {
+  text-align: center;
+  color: #ffc93c;
+  margin: 0;
+}
+.nombre-mascota {
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+.ataques p {
+  line-height: 30px;
+}
+.img-mini > img {
+  transition: transform 0.3s linear;
+  width: 90px;
+}
+.ataque span {
+  padding: 5px 5px 10px 0;
+  display: inline-block;
+}
+.ataque .nombre {
+  font-size: 20px;
+  font-weight: bold;
+}
+footer {
+  font-size: 13px;
+  color: #fff;
+  font-weight: 200;
+  text-align: center;
+}
+footer p {
+  padding: 0 40px;
+}
+footer .fa-heart {
+  font-size: 14px;
+  color: chartreuse;
+}
+.gris {
+  filter: grayscale(100%);
+}
+
+@media (max-width: 448px) {
+  .contenedor {
+    width: 85%;
+  }
+  .titulo {
+    font-size: 50px;
+  }
+  .subtitulo {
+    font-size: 18px;
+  }
+  .contenedor-boton-ataque {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .boton-mascota,
+  .boton-de-ataque,
+  .mensajes {
+    width: 80%;
+  }
+  footer p {
+    padding: 10px;
+  }
+}
