@@ -174,6 +174,26 @@ function iniciarJuego() {
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
 
     botonReiniciar.addEventListener('click', reiniciarJuego)
+
+    unirseAlJuego()
+}
+
+function unirseAlJuego() {
+    const params = {
+        method: 'GET',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'accept': 'application/json'
+        }
+    };
+    fetch("http://localhost:8080/unirse",params)
+    .then(response => response.json())
+    .then(function (res) {
+            console.log (res)
+        }
+    );
+        
+        
 }
 
 function seleccionarMascotaJugador() {
