@@ -158,11 +158,11 @@ function iniciarJuego() {
 
 function unirseAlJuego() {
     fetch("http://192.168.1.44:8080/unirse")
-        .then(function (res) {
+        .then(function(res)  {
             if (res.ok) {
                 res.text()
                     .then(function (respuesta) {
-                        console.log(respuesta)
+                        console.log(respuesta);
                         jugadorId = respuesta
                     })
             }
@@ -258,7 +258,9 @@ function secuenciaAtaque() {
 }
 
 function enviarAtaques() {
-    fetch(`http://192.168.1.44:8080/mokepon/${jugadorId}/ataques`, {
+    console.log('Enviar ataques', ataqueJugador);
+
+fetch(`http://192.168.1.44:8080/mokepon/${jugadorId}/ataques`, {
         method: "post",
         headers: {
             "Content-Type": "application/json"
@@ -272,8 +274,10 @@ function enviarAtaques() {
 }
 
 function obtenerAtaques() {
-    fetch(`http://192.168.1.44:8080/mokepon/${enemigoId}/ataques`)
-        .then(function (res) {
+    console.log('OBTENER ATAQUES')
+
+fetch(`http://192.168.1.44:8080/mokepon/${enemigoId}/ataques`)
+        .then( function (res){
             if (res.ok) {
                 res.json()
                     .then(function ({ ataques }) {
@@ -321,6 +325,7 @@ function indexAmbosOponente(jugador, enemigo) {
 
 function combate() {
     clearInterval(intervalo)
+    console.log('COMBATE')
     
     for (let index = 0; index < ataqueJugador.length; index++) {
         if(ataqueJugador[index] === ataqueEnemigo[index]) {
@@ -430,8 +435,10 @@ function enviarPosicion(x, y) {
         if (res.ok) {
             res.json()
                 .then(function ({ enemigos }) {
-                    console.log(enemigos)
+                    
                     mokeponesEnemigos = enemigos.map(function (enemigo) {
+                        console.log(enemigos)
+                        
                         let mokeponEnemigo = null
                         const mokeponNombre = enemigo.mokepon.nombre || ""
                         if (mokeponNombre === "Hipodoge") {
