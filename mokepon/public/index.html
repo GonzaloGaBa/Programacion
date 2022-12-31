@@ -2,25 +2,25 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>MOKEPON!</title>
+        <title>¡ROCOPON!</title>
         <link rel="stylesheet" href="./styles.css"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <section id="seleccionar-mascota">
-            <h1 class="titulo">Mokepono</h1> 
+        <section id="seleccionar-mascota" class="contenedor">
+            <h1 class="titulo">🐶ROCOPON🐶</h1> 
 
-            <h2 class="subtitulo">Elige tu mascota:</h2>
+            <h2 class="subtitulo">Elige tu Rocopon:</h2>
 
             <div id='contenedorTarjetas' class="tarjetas">
                 
             </div>
 
-            <button id="boton-mascota">Seleccionar</button>
+            <button id="boton-mascota" class="boton">Seleccionar</button>
         </section>
 
-        <section id="ver-mapa">
-            <h2 class="subtitulo">Recorre el mapa con tu mokepon</h2> 
+        <section id="ver-mapa" class="contenedor">
+            <h2 class="subtitulo" id="subtitulo">Recorre el mapa con tu mokepon</h2> 
             <canvas id="mapa"></canvas>
             <button
                 ontouchend="detenerMovimiento()"  
@@ -50,35 +50,57 @@
         </div>
         </section>
 
-        <section id="seleccionar-ataque">
-            <h1 class="titulo">Mokepon</h1>
+        <section id="seleccionar-ataque" class="contenedor">
+            <h1 class="titulo">🐶ROCOPON🐶</h1>
 
-            <h2 class="subtitulo">Elige tu ataque:</h2>
+            <h2 class="subtitulo" id="subtitulo">Elige tu ataque:</h2>
 
+            <div class="contenedor-boton-ataque" id="contenedor-boton-ataque">
+            </div>
             <div id='contenedorAtaques' class="tarjetas-ataques">
 
             </div>
 
-            <div id="mensajes">
-                <p id="resultado">Mucha suerte</p>
+            <div id="mensajes"  class="mensajes" disable>
+                <p  class="resultado" id="resultado">¡Que la Roco Suerte te acompañe!</p>
 
                 <section id="reiniciar">
-                    <button id="boton-reiniciar">Reiniciar</button>
+                    <button id="boton-reiniciar" class="boton-reiniciar">Reiniciar</button>
                 </section>
             </div>
 
-            <div class="ataques">
-                <div class="ataques-jugador">
-                    <p id="vidas-jugador">0</p>
-                    <p id="mascota-jugador"></p>
-                    <div id="ataques-del-jugador"></div>
+            <div class="marco">
+                <div >
+                    <p class="nombre">JUGADOR</p>
+                    <p>
+                      <span id="vidas-jugador" class="vidas">0</span> <span><i class='fa-solid fa-trophy'></i></span>
+                    </p>
+                    <div id="img-miniatura" class="img-mini">
+                      <img id="img-miniatura-jugador" src="" alt="Mascota en combate">
+                    </div>
+              
+                    <p id="mascota-jugador" class="nombre-mascota"></p>
+              
+                    <div id="ataques-del-jugador" class="ataques"></div>
                 </div>
-                <div class="ataques-enemigo">   
-                    <p id="vidas-enemigo">0</p>
-                    <p id="mascota-enemigo"></p>
-                    <div id="ataques-del-enemigo"></div>
+              
+                <div >
+                    <p class="nombre">ENEMIGO</p>
+                    <p>
+                      <span id="vidas-enemigo" class="vidas">0</span> <span><i class='fa-solid fa-trophy'></i></span>
+                    </p>
+              
+                    <div class="img-mini">
+                      <img id="img-miniatura-enemigo" src="" alt="Mascota en combate">
+                    </div>
+              
+                    <p id="mascota-enemigo" class="nombre-mascota"></p>
+              
+                    <div id="ataques-del-enemigo" class="ataques"></div>
+                    </div>
                 </div>
             </div>
+             
         </section>
         <script src="./js/mokepon.js"></script>
     </body>

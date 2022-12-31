@@ -158,7 +158,7 @@ function iniciarJuego() {
 
 function unirseAlJuego() {
     fetch("http://192.168.1.44:8080/unirse")
-        .then(function(res)  {
+        .then((res) => {
             if (res.ok) {
                 res.text()
                     .then(function (respuesta) {
@@ -277,7 +277,7 @@ function obtenerAtaques() {
     console.log('OBTENER ATAQUES')
 
 fetch(`http://192.168.1.44:8080/mokepon/${enemigoId}/ataques`)
-        .then( function (res){
+        .then(function (res) {
             if (res.ok) {
                 res.json()
                     .then(function ({ ataques }) {
@@ -297,26 +297,26 @@ function seleccionarMascotaEnemigo(enemigo) {
 }
 
 
-function ataqueAleatorioEnemigo() {
-    console.log('Ataques enemigo', ataquesMokeponEnemigo);
-    let ataqueAleatorio = aleatorio(0,ataquesMokeponEnemigo.length -1)
+// function ataqueAleatorioEnemigo() {
+//     console.log('Ataques enemigo', ataquesMokeponEnemigo);
+//     let ataqueAleatorio = aleatorio(0,ataquesMokeponEnemigo.length -1)
     
-    if (ataqueAleatorio == 0 || ataqueAleatorio ==1) {
-        ataqueEnemigo.push('FUEGO')
-    } else if (ataqueAleatorio == 3 || ataqueAleatorio == 4) {
-        ataqueEnemigo.push('AGUA')
-    } else {
-        ataqueEnemigo.push('TIERRA')
-    }
-    console.log(ataqueEnemigo)
-    iniciarPelea()
-}
+//     if (ataqueAleatorio == 0 || ataqueAleatorio ==1) {
+//         ataqueEnemigo.push('FUEGO')
+//     } else if (ataqueAleatorio == 3 || ataqueAleatorio == 4) {
+//         ataqueEnemigo.push('AGUA')
+//     } else {
+//         ataqueEnemigo.push('TIERRA')
+//     }
+//     console.log(ataqueEnemigo)
+//     iniciarPelea()
+// }
 
-function iniciarPelea() {
-    if (ataqueJugador.length === 5) {
-        combate()
-    }
-}
+// function iniciarPelea() {
+//     if (ataqueJugador.length === 5) {
+//         combate()
+//     }
+// }
 
 function indexAmbosOponente(jugador, enemigo) {
     indexAtaqueJugador = ataqueJugador[jugador]
@@ -330,25 +330,25 @@ function combate() {
     for (let index = 0; index < ataqueJugador.length; index++) {
         if(ataqueJugador[index] === ataqueEnemigo[index]) {
             indexAmbosOponente(index, index)
-            crearMensaje("EMPATE")
+            crearMensaje("EMPATASTE 🤜🤛")
         } else if (ataqueJugador[index] === 'FUEGO' && ataqueEnemigo[index] === 'TIERRA') {
             indexAmbosOponente(index, index)
-            crearMensaje("GANASTE")
+            crearMensaje("Ganaste 🎊🤩🎉")
             victoriasJugador++
             spanVidasJugador.innerHTML = victoriasJugador
         } else if (ataqueJugador[index] ==='AGUA' && ataqueEnemigo[index] === 'FUEGO') {
             indexAmbosOponente(index, index)
-            crearMensaje("GANASTE")
+            crearMensaje("Ganaste 🎊🤩🎉")
             victoriasJugador++
             spanVidasJugador.innerHTML = victoriasJugador
         } else if (ataqueJugador[index] === 'TIERRA' && ataqueEnemigo[index] === 'AGUA') {
             indexAmbosOponente(index, index)
-            crearMensaje("GANASTE")
+            crearMensaje("Ganaste 🎊🤩🎉")
             victoriasJugador++
             spanVidasJugador.innerHTML = victoriasJugador
         } else {
             indexAmbosOponente(index, index)
-            crearMensaje("PERDISTE")
+            crearMensaje("Perdiste 😥😭")
             victoriasEnemigo++
             spanVidasEnemigo.innerHTML = victoriasEnemigo
         }
@@ -358,14 +358,22 @@ function combate() {
 }
 
 function revisarVidas() {
-    if (victoriasJugador === victoriasEnemigo) {
-        crearMensajeFinal("Esto fue un empate!!!")
-    } else if (victoriasJugador > victoriasEnemigo) {
-        crearMensajeFinal("FELICITACIONES! Ganaste :)")
-    } else {
-        crearMensajeFinal('Lo siento, perdiste :(')
+    if (victoriasJugador == victoriasEnemigo) {
+        crearMensajeFinal(
+            "¡EMPATARON! Reiniciar para ganar <p><i class='fa-solid fa-face-smile'></i></p>"
+        ); //ganas
+      } else if (victoriasJugador > victoriasEnemigo) {
+        crearMensajeFinal(
+          "Felicidades, ganaste la batalla rocopon 🎉🎊✨😙🤩🤗 <p class ='figuraResultado'><i class='fa-solid fa-trophy'></i></p>"
+        ); //ganas
+        imgSrcEnemigo.classList.add("gris");
+      } else {
+        crearMensajeFinal(
+          "Tu Rocopon ha muerto💀!PERDISTE! <p class ='figuraResultado'><i class='fa-solid fa-face-sad-tear'></i></p>"
+        ); //pierdes
+        imgSrcJugador.classList.add("gris");
+      }
     }
-}
 
 function crearMensaje(resultado) {
     

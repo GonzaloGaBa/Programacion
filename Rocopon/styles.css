@@ -15,7 +15,7 @@ body {
     );
       display: grid;
       grid-template-rows: auto 50px;
-      min-height: 100vh;
+      min-height: 95vh;
 }
 .contenedor {
       min-height: 80vh;
@@ -41,6 +41,13 @@ body {
       padding: 30px;
       box-shadow: 0px 0px 10px 10px rgb(2 0 36);
 }    
+
+#seleccionar-mascota {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .titulo {
   font-family: "Luckiest Guy", cursive;
@@ -101,6 +108,7 @@ input:hover + label > p {
   background-color: #f82ab3;
   box-shadow: 0px 0px 6px 3px #fda7e1;
 }
+
 .tarjetas{
   display: flex;
   flex-wrap: wrap;
